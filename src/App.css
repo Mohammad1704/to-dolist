@@ -1,6 +1,28 @@
-.App {
+body {
+  font-family: 'Shadows Into Light', cursive;
+font-family: 'Caveat', cursive;
+/* font-family: 'Sacramento', cursive; */
+  margin-top: 10%;
   text-align: center;
+ font-size: 30px;
 }
+
+ul{
+
+  list-style-position: inside;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.done{
+  color: gray;
+  text-decoration: line-through;
+}
+span{
+  font-size: 50px;
+  color: rgb(78, 77, 77);
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -19,7 +41,7 @@
   color: white;
 }
 
-.App-link {
+a{
   color: #61dafb;
 }
 

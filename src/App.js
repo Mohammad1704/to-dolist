@@ -52,11 +52,13 @@ submitTask = (event) => {
     })
     return (
      <div>
+       <link href="https://fonts.googleapis.com/css?family=Caveat|Sacramento|Shadows+Into+Light" rel="stylesheet" />
        <form onSubmit={this.submitTask}>
-       <label>text</label>
+       <label>New Task✒️</label>
        <input type='text' onfocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
        </form>
-{todoList}
+       <ul>{todoList}</ul>
+
       </div>
     );
   }
