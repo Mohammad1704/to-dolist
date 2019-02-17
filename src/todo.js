@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Todo extends Component {
 
     state = {
-        hide: 'done'
+        hide: 'false'
     }
     
     hideTask = () =>{
@@ -12,12 +12,18 @@ class Todo extends Component {
         }else{
             this.setState({hide:'false'})
         }
+
+        console.log(this.state.hide)
+
     }
 render(){
     return (
-        <div>
- <li> <span  onClick={this.hideTask} >◌</span> {this.props.todo.text}</li>
- </div>
+            <div>
+                <li onClick={this.hideTask} > 
+                    <span >◌</span>
+                    <span className={this.state.hide} > {this.props.todo.text} </span>
+                </li>
+            </div>
     )
 }
 
