@@ -7,6 +7,19 @@ font-family: 'Caveat', cursive;
  font-size: 30px;
 }
 
+input[type=text] {
+  width: 60%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 25px;
+  font-family: 'Caveat', cursive;
+  background-color: white;
+  /* background-image: url('searchicon.png'); */
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
 ul{
 
   list-style-position: inside;
