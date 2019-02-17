@@ -16,6 +16,7 @@ class Todo extends Component {
         console.log(this.state.hide)
 
     }
+    
 render(){
     return (
             <div>

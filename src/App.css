@@ -20,6 +20,10 @@ input[type=text] {
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
 }
+div{
+  margin: 0;
+  padding: 0;
+}
 ul{
 
   list-style-position: inside;
@@ -27,13 +31,20 @@ ul{
   margin: 0;
   padding: 0;
 }
+li{
+  padding: 0;
+  margin: 0;
+}
+
 .done{
   color: gray;
   text-decoration: line-through;
 }
 span{
-  font-size: 50px;
+  font-size: 30px;
   color: rgb(78, 77, 77);
+  margin: 0;
+  padding: 0;
 }
 
 

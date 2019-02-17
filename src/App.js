@@ -11,15 +11,11 @@ class App extends Component {
 
             list : [
             {
-              "text" : " buy stuff"
-            },
-            {
-              "text" : " buy stuff"
-            },
-            {
-              "text" : " buy stuff"
+              "text" : ""
             }
           ]
+
+
   }
   updateForm = (event) => {
     const newTask = event.target.value
@@ -44,6 +40,11 @@ submitTask = (event) => {
   })
 }
 
+clearlist = (event) => {
+  this.setState({list: []});
+
+}
+
   render() {
     
 
@@ -58,7 +59,7 @@ submitTask = (event) => {
        <input type='text' placeholder="New Task✒️" onfocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
        </form>
        <ul>{todoList}</ul>
-
+       <button onClick={this.clearlist} > clear all </button>
       </div>
     );
   }
