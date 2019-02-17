@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './button.css';
 import Todo from './todo.js'
 class App extends Component {
 
@@ -53,13 +54,24 @@ clearlist = (event) => {
     })
     return (
      <div>
+         <link rel="stylesheet" href="button.css"/>
+
        <link href="https://fonts.googleapis.com/css?family=Caveat|Sacramento|Shadows+Into+Light" rel="stylesheet" />
        <form onSubmit={this.submitTask}>
        
        <input type='text' placeholder="New Task✒️" onfocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
        </form>
        <ul>{todoList}</ul>
-       <button onClick={this.clearlist} > clear all </button>
+
+       <div id="contentWrapper">
+		<div id="content">
+			
+			
+			<span id="button" onClick={this.clearlist} >clear all</span>
+		</div>
+	</div>
+
+       {/* <button onClick={this.clearlist} > clear all </button> */}
       </div>
     );
   }
