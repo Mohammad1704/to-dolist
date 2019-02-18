@@ -18,6 +18,7 @@ class App extends Component {
 
 
   }
+
   updateForm = (event) => {
     const newTask = event.target.value
     const originalState = this.state.addForm
@@ -43,16 +44,35 @@ submitTask = (event) => {
 
 clearlist = (event) => {
   this.setState({list: []});
-
 }
+
+deleteTask = (index) => {
+  // var list = [this.state.list];
+  // var index = array.indexOf(this.props.todo.text)
+// make copy of the array 
+const copy = this.state.list.slice(0)
+copy.splice(index,1)
+//delete from copy 
+//setcopy to orginal 
+this.setState({list : copy})
+  
+  }
+
+
 
   render() {
     
 
-    const todoList = this.state.list.map((todo) => {
-      return <Todo todo = {todo} />
-    })
+
+    const todoList = this.state.list.map((todo, index) => {
+      return <Todo todo = {todo} index={index} deketeTask={this.deleteTask}/>
+      
+    }
+    
+
+    
     return (
+     
      <div>
          <link rel="stylesheet" href="button.css"/>
 
