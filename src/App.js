@@ -25,7 +25,7 @@ class App extends Component {
     const copy = Object.assign({}, originalState);
     const key = event.target.name
     copy[key] = newTask
-    this.setState({
+     this.setState({
       addForm: copy
     })
   }   
@@ -35,10 +35,7 @@ submitTask = (event) => {
   const copy = this.state.list.slice(0)
   copy.push(this.state.addForm)
   this.setState({
-    list : copy,
-    addForm: {
-      text:''
-    }
+    list : copy , addForm: { text:'' }
   })
 }
 
@@ -49,27 +46,22 @@ clearlist = (event) => {
 deleteTask = (index) => {
   // var list = [this.state.list];
   // var index = array.indexOf(this.props.todo.text)
-// make copy of the array 
-const copy = this.state.list.slice(0)
-copy.splice(index,1)
-//delete from copy 
-//setcopy to orginal 
-this.setState({list : copy})
+  // make copy of the array 
+  const copy = this.state.list.slice(0)
+  // remove the item at the index
+  copy.splice(index,1)
+  //delete from copy 
+  //setcopy to orginal 
+  this.setState({list : copy})
   
-  }
+}
 
-
-
-  render() {
-    
-
+render() {
 
     const todoList = this.state.list.map((todo, index) => {
-      return <Todo todo = {todo} index={index} deketeTask={this.deleteTask}/>
+      return <Todo todo = {todo} index={index} deleteTask={this.deleteTask}/>
       
-    }
-    
-
+    })
     
     return (
      

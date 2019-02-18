@@ -37,8 +37,7 @@ a{
 	color:#F0F0F0;
 	border-radius:10px;
 	border-bottom:4px solid #0045A6;
-	box-shadow: 6px 6px 6px #999;
-	
+    box-shadow: 4px 4px 4px 0px #999;	
 	-webkit-user-select: none;        
 	-moz-user-select: none;
 	-ms-user-select: none;

@@ -8,6 +8,7 @@ font-family: 'Caveat', cursive;
 }
 
 input[type=text] {
+  margin: 6%;
   width: 60%;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -15,7 +16,8 @@ input[type=text] {
   font-size: 25px;
   font-family: 'Caveat', cursive;
   background-color: white;
-  /* background-image: url('searchicon.png'); */
+  box-shadow: 0px 20px 20px 1px #999;
+    /* background-image: url('searchicon.png'); */
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
@@ -77,4 +79,49 @@ a{
   to {
     transform: rotate(360deg);
   }
+}
+
+  #del{
+	/* text-align:center;
+	margin:170px auto;
+	padding: 20px 0px;
+	display:block;
+	height:30px;
+	width:175px; */
+	
+	cursor:pointer;
+	/* font-size:25px; */
+	color:#F0F0F0;
+	border-radius:10px;
+	border-bottom:4px solid rgb(141, 1, 1);
+  box-shadow: 0px 0px 20px 0px #999;
+	-webkit-user-select: none;        
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	
+	background: -webkit-linear-gradient( rgb(255, 0, 43), rgb(141, 1, 1));
+    background: -o-linear-gradient( rgb(255, 0, 43), rgb(141, 1, 1));
+    background: -moz-linear-gradient( rgb(255, 0, 43), rgb(141, 1, 1));
+    background: linear-gradient( rgb(255, 0, 43), rgb(141, 1, 1));
+	
+	-webkit-transition: background 0.05s linear;  
+    -moz-transition: background 0.05s linear;  
+    -o-transition: background 0.05s linear;  
+    transition: background 0.05s linear;
+	
+	background-size:1px 200px;
+	
+	transition: all .05s linear;
+}
+
+#del:hover{
+	background-position:100px;
+}
+
+#del:active {
+	box-shadow: 2px 2px 2px #777;
+	border-bottom:1px solid #0045A6;
+	transform: translateY(3px);
 }

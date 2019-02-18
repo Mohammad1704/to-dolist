@@ -14,17 +14,15 @@ class Todo extends Component {
         }
         console.log(this.state.hide)
     }
-    deleteTaskpass = (event) => {
-this.props.deleteTask(event.target.value) // target??
-    }
- 
+    
     
 render(){
     return (
             <div>
-                <li  > 
+                <li> 
                     <span onClick={this.hideTask} >◌</span>
-                    <span className={this.state.hide} > {this.props.todo.text}  </span>  <button value={this.props.index} onClick={this. delete} >delete </button> 
+                    <span className={this.state.hide} > {this.props.todo.text}  </span>  
+                    <button id ='del' onClick={(event) => this.props.deleteTask(this.props.index)} >delete </button> 
                 </li>
             </div>
     )
