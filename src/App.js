@@ -20,11 +20,9 @@ class App extends Component {
   }
 
   updateForm = (event) => {
-    const newTask = event.target.value
-    const originalState = this.state.addForm
-    const copy = Object.assign({}, originalState);
+    const copy = Object.assign({}, this.state.addForm);
     const key = event.target.name
-    copy[key] = newTask
+    copy[key] = event.target.value
      this.setState({
       addForm: copy
     })
@@ -44,15 +42,13 @@ clearlist = (event) => {
 }
 
 deleteTask = (index) => {
-  // var list = [this.state.list];
-  // var index = array.indexOf(this.props.todo.text)
-  // make copy of the array 
   const copy = this.state.list.slice(0)
   // remove the item at the index
   copy.splice(index,1)
   //delete from copy 
   //setcopy to orginal 
   this.setState({list : copy})
+  
   
 }
 

@@ -3,16 +3,16 @@ import React, {Component} from 'react';
 class Todo extends Component {
 
     state = {
-        hide: 'false'
+        checked: 'false'
     }
     
-    hideTask = () =>{
-        if (this.state.hide === 'false'){
-            this.setState({hide:'done'})
+    checkedTask = () =>{
+        if (this.state.checked === 'false'){
+            this.setState({checked:'done'})
         }else{
-            this.setState({hide:'false'})
+            this.setState({checked:'false'})
         }
-        console.log(this.state.hide)
+        console.log(this.state.checked)
     }
     
     
@@ -20,9 +20,9 @@ render(){
     return (
             <div>
                 <li> 
-                    <span onClick={this.hideTask} >◌</span>
-                    <span className={this.state.hide} > {this.props.todo.text}  </span>  
-                    <button id ='del' onClick={(event) => this.props.deleteTask(this.props.index)} >delete </button> 
+                    <span onClick={this.checkedTask} >◌</span>
+                    <span className={this.state.checked} > {this.props.todo.text}  </span>  
+                    <button id ='del' onClick={(event) => {this.props.deleteTask(this.props.index) ; this.setState({checked:'false'})} } >delete </button> 
                 </li>
             </div>
     )
