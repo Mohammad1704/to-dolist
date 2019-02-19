@@ -10,11 +10,7 @@ class App extends Component {
           text:''
            },
 
-            list : [
-            {
-              "text" : ""
-            }
-          ]
+            list : []
 
 
   }
@@ -48,7 +44,7 @@ deleteTask = (index) => {
   //delete from copy 
   //setcopy to orginal 
   this.setState({list : copy})
-  
+
   
 }
 
