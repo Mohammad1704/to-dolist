@@ -52,7 +52,24 @@ deleteTask = (index) => {
 render() {
 
     const todoList = this.state.list.map((todo, index) => {
-      return <Todo todo = {todo} index={index} deleteTask={this.deleteTask}/>
+    const num = Math.round( this.state.list.length / 3 ); 
+    let part = 1 ; 
+
+    let isNewPart = false ; 
+
+    if( index > 3 &&  index % num == 0 ){
+        part++ 
+        isNewPart = true ; 
+    } 
+    
+    
+    return <div className={  isNewPart ? "part" + part : ""}>
+      <Todo todo = {todo} index={index} deleteTask={this.deleteTask}/>
+    </div>
+
+
+      // return <Todo todo = {todo} index={index} deleteTask={this.deleteTask}/>
+
       
     })
     
@@ -67,20 +84,28 @@ render() {
        <input type='text' placeholder="New Task✒️" onFocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
        </form>
        
-       {/* <ul>{todoList}</ul> */}
-
+      
        <div class="paper">
-  <div class="part1">
-    <h2>Tasks</h2>
-    { <p><ul>{todoList}</ul></p> /*  show todoList indexOf(0) to (4) */}
-  </div>
-  <div class="part2">
-    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(5) to (11) */}
-  </div>
-  <div class="part3">
-    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(12) to (16) */}
-  </div>
-</div>
+
+          
+          {todoList}
+
+        {/* <div class="part1">
+          <h2>Tasks</h2>
+          { <p><ul>{todoList}</ul></p>  show todoList indexOf(0) to (4) }
+        </div>
+
+        <div class="part2">
+          { <p>  <ul>{todoList}</ul> </p>  show todoList indexOf(5) to (11) }
+        </div>
+
+        <div class="part3">
+          { <p>  <ul>{todoList}</ul> </p>   show todoList indexOf(12) to (16) }
+        </div> */}
+
+        
+
+      </div>
        <div id="contentWrapper">
 		<div id="content">
 			<span id="button" onClick={this.clearlist} >clear all</span>

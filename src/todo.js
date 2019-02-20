@@ -22,7 +22,7 @@ render(){
                 <li> 
                     <span onClick={this.checkedTask} >◌</span>
                     <span className={this.state.checked} > {this.props.todo.text}  </span>  
-                    <img src="./delete.svg"  onClick={(event) => {this.props.deleteTask(this.props.index) ; this.setState({checked:'false'})} } />
+                    <im  onClick={(event) => {this.props.deleteTask(this.props.index) ; this.setState({checked:'false'})} } />
                 </li>
             </div>
     )
