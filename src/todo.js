@@ -22,7 +22,7 @@ render(){
                 <li> 
                     <span onClick={this.checkedTask} >◌</span>
                     <span className={this.state.checked} > {this.props.todo.text}  </span>  
-                    <button id ='del' onClick={(event) => {this.props.deleteTask(this.props.index) ; this.setState({checked:'false'})} } >delete </button> 
+                    <delete  onClick={(event) => {this.props.deleteTask(this.props.index) ; this.setState({checked:'false'})} } >🗑 </delete> 
                 </li>
             </div>
     )

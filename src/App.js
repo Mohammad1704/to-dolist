@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './button.css';
+import './paper.scss';
 import Todo from './todo.js'
 class App extends Component {
 
@@ -59,14 +60,27 @@ render() {
      
      <div>
          <link rel="stylesheet" href="button.css"/>
-
+       <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Kalam" rel="stylesheet"/>
        <link href="https://fonts.googleapis.com/css?family=Caveat|Sacramento|Shadows+Into+Light" rel="stylesheet" />
        <form onSubmit={this.submitTask}>
        
-       <input type='text' placeholder="New Task✒️" onfocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
+       <input type='text' placeholder="New Task✒️" onFocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
        </form>
-       <ul>{todoList}</ul>
+       
+       {/* <ul>{todoList}</ul> */}
 
+       <div class="paper">
+  <div class="part1">
+    <h2>Title</h2>
+    <p>Let dolore magna aliquyam erat, sed diam.</p>
+  </div>
+  <div class="part2">
+    <p>  <ul>{todoList}</ul> </p>
+  </div>
+  <div class="part3">
+    <p>  <ul>{todoList}</ul> <span class="pageNumber">6</span></p>
+  </div>
+</div>
        <div id="contentWrapper">
 		<div id="content">
 			
@@ -76,6 +90,8 @@ render() {
 	</div>
 
        {/* <button onClick={this.clearlist} > clear all </button> */}
+
+
       </div>
     );
   }
