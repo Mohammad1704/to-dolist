@@ -16,8 +16,8 @@ a{
 	text-decoration:none;
 }
 #contentWrapper{
-    width: 90%;
-	margin: 0 auto;
+    width: 20%;
+	margin: 0 auto 13px  ;
 	text-align: center;
 }
 #content{
@@ -25,19 +25,17 @@ a{
 }
 
 #button{
-	text-align:center;
-	margin:170px auto;
-	padding: 20px 0px;
+	 position: relative; color: rgb(255, 255, 255); display: flex; align-items: center; justify-content: center; padding-top: 13px;
+	/* padding: 5px 0px;
 	display:block;
 	height:30px;
-	width:175px;
+	width:175px; */ 
 	
 	cursor:pointer;
 	font-size:25px;
-	color:#F0F0F0;
 	border-radius:10px;
 	border-bottom:4px solid #0045A6;
-    box-shadow: 4px 4px 4px 0px #999;	
+    box-shadow: 4px 4px 4px 0px block;	
 	-webkit-user-select: none;        
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -64,7 +62,8 @@ a{
 }
 
 #button:active {
-	box-shadow: 2px 2px 2px #777;
-	border-bottom:1px solid #0045A6;
+	box-shadow: 2px 2px 2px red;
+	border-bottom:1px solid red;
+	color: red;
 	transform: translateY(3px);
 }

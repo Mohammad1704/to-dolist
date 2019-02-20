@@ -83,8 +83,6 @@ render() {
 </div>
        <div id="contentWrapper">
 		<div id="content">
-			
-			
 			<span id="button" onClick={this.clearlist} >clear all</span>
 		</div>
 	</div>
