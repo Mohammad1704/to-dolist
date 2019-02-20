@@ -71,14 +71,14 @@ render() {
 
        <div class="paper">
   <div class="part1">
-    <h2>Title</h2>
-    <p>Let dolore magna aliquyam erat, sed diam.</p>
+    <h2>Tasks</h2>
+    { <p><ul>{todoList}</ul></p> /*  show todoList indexOf(0) to (4) */}
   </div>
   <div class="part2">
-    <p>  <ul>{todoList}</ul> </p>
+    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(5) to (11) */}
   </div>
   <div class="part3">
-    <p>  <ul>{todoList}</ul> <span class="pageNumber">6</span></p>
+    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(12) to (16) */}
   </div>
 </div>
        <div id="contentWrapper">
