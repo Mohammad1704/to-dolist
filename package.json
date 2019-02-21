@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Mohammad1704.github.io/to-dolist",
   "name": "to-dolist",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +15,8 @@
     "typescript": "^3.3.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
