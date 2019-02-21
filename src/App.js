@@ -1,95 +1,121 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import './button.css';
-import './paper.scss';
-import Todo from './todo.js'
+
+import React, { Component } from "react";
+import "./App.css";
+import "./button.css";
+import "./paper.scss";
+import Todo from "./todo";
 class App extends Component {
-
   state = {
-    addForm:{
-          text:''
-           },
+    addForm: {
+      text: ""
+    },
+    list: []
+  };
 
-            list : []
-
-
-  }
-
-  updateForm = (event) => {
+  updateForm = event => {
     const copy = Object.assign({}, this.state.addForm);
-    const key = event.target.name
-    copy[key] = event.target.value
-     this.setState({
+    const key = event.target.name;
+    copy[key] = event.target.value;
+    this.setState({
       addForm: copy
-    })
-  }   
+    });
+  };
 
-submitTask = (event) => {
-  event.preventDefault()
-  const copy = this.state.list.slice(0)
-  copy.push(this.state.addForm)
-  this.setState({
-    list : copy , addForm: { text:'' }
-  })
-}
+  submitTask = event => {
+    console.log("submit");
+    event.preventDefault();
+    const copy = this.state.list.slice(0);
+    copy.push(this.state.addForm);
+    this.setState({
+      list: copy,
+      addForm: { text: "" }
+    });
+  };
 
-clearlist = (event) => {
-  this.setState({list: []});
-}
+  clearlist = event => {
+    this.setState({ list: [] });
+  };
 
-deleteTask = (index) => {
-  const copy = this.state.list.slice(0)
-  // remove the item at the index
-  copy.splice(index,1)
-  //delete from copy 
-  //setcopy to orginal 
-  this.setState({list : copy})
+  deleteTask = index => {
+    const copy = this.state.list.slice(0);
+    // remove the item at the index
+    copy.splice(index, 1);
+    //delete from copy
+    //setcopy to orginal
+    this.setState({ list: copy });
+  };
 
-  
-}
+  render() {
+    const todoList = () => {
+      // to devide the list into 3 parts 
+      let chunk = Math.round(this.state.list.length / 3);
+      const mod3 = this.state.list.length % 3;
 
-render() {
+      let temparray = [];
 
-    const todoList = this.state.list.map((todo, index) => {
-      return <Todo todo = {todo} index={index} deleteTask={this.deleteTask}/>
-      
-    })
-    
+      if (this.state.list.length < 3) {
+        chunk = 1;
+      }
+
+      for (let i = 0; i < this.state.list.length; i =  i + chunk) {
+        if (
+          i === this.state.list.length - 1 &&
+          mod3 > 0 &&
+          this.state.list.length > 3
+        ) {
+
+          if(temparray[0])
+          temparray[0] = temparray[0].concat(
+              this.state.list.slice(i, i + chunk + mod3)
+            );
+        } else {
+          temparray.push(this.state.list.slice(i, i + chunk));
+        }
+      }
+
+    // render 
+      return temparray.map((temp, index) => {
+        return (
+          <div className={"part" + (index + 1)}>
+            {temp.map(todo => (
+              <Todo todo={todo} index={index} deleteTask={this.deleteTask} />
+            ))}
+          </div>
+        );
+      });
+    };
+
     return (
-     
-     <div>
-         <link rel="stylesheet" href="button.css"/>
-       <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Kalam" rel="stylesheet"/>
-       <link href="https://fonts.googleapis.com/css?family=Caveat|Sacramento|Shadows+Into+Light" rel="stylesheet" />
-       <form onSubmit={this.submitTask}>
-       
-       <input type='text' placeholder="New Task✒️" onFocus="this.value=''" name='text' onChange={this.updateForm} value={this.state.addForm.text} />
-       </form>
-       
-       {/* <ul>{todoList}</ul> */}
+      <div>
+        <link rel="stylesheet" href="button.css" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Indie+Flower|Kalam"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Caveat|Sacramento|Shadows+Into+Light"
+          rel="stylesheet"
+        />
+        <form onSubmit={this.submitTask}>
+          <input
+            type="text"
+            placeholder="New Task✒️"
+            name="text"
+            onChange={this.updateForm}
+            value={this.state.addForm.text}
+          />
+        </form>
 
-       <div class="paper">
-  <div class="part1">
-    <h2>Tasks</h2>
-    { <p><ul>{todoList}</ul></p> /*  show todoList indexOf(0) to (4) */}
-  </div>
-  <div class="part2">
-    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(5) to (11) */}
-  </div>
-  <div class="part3">
-    { <p>  <ul>{todoList}</ul> </p>  /* show todoList indexOf(12) to (16) */}
-  </div>
-</div>
-       <div id="contentWrapper">
-		<div id="content">
-			<span id="button" onClick={this.clearlist} >clear all</span>
-		</div>
-	</div>
+        <div className="paper">{todoList()}</div>
+        <div id="contentWrapper">
+          <div id="content">
+            <span id="button" onClick={this.clearlist}>
+              clear all
+            </span>
+          </div>
+        </div>
 
-       {/* <button onClick={this.clearlist} > clear all </button> */}
-
-
+        {/* <button onClick={this.clearlist} > clear all </button> */}
       </div>
     );
   }
